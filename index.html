@@ -6,6 +6,39 @@
     <title>Ben Kimim | Portfolyo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3)); /* Fotoğrafına hafif mor bir ışıltı verir */
+    border-radius: 20px;
+}
+
+/* Mobilde fotoğrafın metnin altına gelmesi için */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        align-items: center;
+        margin-bottom: 30px;
+    }
+}
         /* Temel Ayarlar ve Renk Paleti */
         :root {
             --bg-color: #0f172a; /* Derin Gece Mavisi */
@@ -248,7 +281,7 @@
             <a href="#works" class="btn">Çalışmalarımı Gör</a>
         </div>
         <div class="hero-image fade-in">
-            <img src="profil-foto.png" alt="Berat Çetin">
+            <img src="beratcetinprofil.png" alt="Berat Çetin">
         </div>
     </div>
 </section>
