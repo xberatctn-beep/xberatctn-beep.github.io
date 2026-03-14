@@ -61,5 +61,25 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
     </svg>
 </button>
+    <script>
+    const scrollBtn = document.getElementById("scrollToTop");
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.classList.remove("opacity-0", "invisible");
+            scrollBtn.classList.add("opacity-100", "visible");
+        } else {
+            scrollBtn.classList.add("opacity-0", "invisible");
+            scrollBtn.classList.remove("opacity-100", "visible");
+        }
+    };
+
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
 </body>
 </html>
