@@ -58,4 +58,50 @@
             </p>
 
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="projeler.html" class="px-10 py-4 bg-purple-600 rounded-xl font-
+                <a href="projeler.html" class="px-10 py-4 bg-purple-600 rounded-xl font-bold text-white hover:bg-purple-700 transition-all transform hover:scale-105">
+                    Çalışmalarımı İncele
+                </a>
+                <a href="#hakkimda" class="px-10 py-4 border-2 border-purple-500 rounded-xl font-bold text-purple-400 hover:bg-purple-500/10 transition-all transform hover:scale-105">
+                    Beni Tanıyın
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimda" class="py-24 px-6 bg-[#0f001a]">
+        <div class="max-w-4xl mx-auto text-center border-t border-white/5 pt-12">
+            <h2 class="text-4xl font-extrabold mb-8 text-white">Ben Kimim?</h2>
+            <div class="text-gray-300 text-lg mb-12 leading-relaxed space-y-6 text-justify md:text-center">
+                <p>Merhaba, ben <strong>Berat Çetin</strong>. Yazılım geliştirme, mobil oyun tasarımı ve dijital ürün üretimi üzerine çalışan bir geliştiriciyim. Özellikle Unity ile mobil oyun geliştirme, C# programlama ve modern web siteleri oluşturma alanlarına odaklanıyorum.</p>
+                <p>Benim için yazılım geliştirme; bir fikri tasarlayıp onu gerçek bir ürüne dönüştürme sürecidir. Oyun geliştirme sürecinde; oynanış mekaniği, performans optimizasyonu ve kullanıcı deneyimi gibi unsurların uyumuna önem veriyorum.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+                <div class="p-6 glass rounded-xl border border-white/5 hover:border-purple-500 transition">C# & Unity</div>
+                <div class="p-6 glass rounded-xl border border-white/5 text-purple-400 font-bold hover:border-purple-500 transition">Mobil Uygulama</div>
+                <div class="p-6 glass rounded-xl border border-white/5 hover:border-purple-500 transition">Responsive Web</div>
+                <div class="p-6 glass rounded-xl border border-white/5 text-purple-400 font-bold hover:border-purple-500 transition">AI Entegrasyonu</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Bana Mesaj Gönderin</h2>
+            <form action="https://formspree.io/f/mojknqjk" method="POST" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" name="name" placeholder="Adınız" required class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition text-white">
+                    <input type="email" name="email" placeholder="E-Posta Adresiniz" required class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition text-white">
+                </div>
+                <textarea name="message" rows="5" placeholder="Mesajınız" required class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition text-white"></textarea>
+                <button type="submit" class="w-full py-4 bg-purple-600 rounded-lg font-bold hover:bg-purple-700 transition neon-button uppercase tracking-widest text-white">Gönder</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-white/5 text-gray-500 text-sm">
+        <p>&copy; 2026 Berat Çetin. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
