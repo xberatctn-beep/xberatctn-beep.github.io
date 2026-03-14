@@ -203,5 +203,12 @@
         };
         scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
     </script>
+    <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#0b0014] transition-opacity duration-700">
+    <div class="relative">
+        <div class="w-20 h-20 border-4 border-purple-900/20 border-t-purple-500 rounded-full animate-spin"></div>
+        <div class="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-purple-400 rounded-full animate-pulse blur-sm"></div>
+        <p class="mt-4 text-purple-400 font-bold tracking-widest text-xs uppercase animate-pulse text-center">Yükleniyor</p>
+    </div>
+</div>
 </body>
 </html>
