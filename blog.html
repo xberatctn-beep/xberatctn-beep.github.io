@@ -4,79 +4,259 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Cetin.Digital</title>
-    <meta name="description" content="Berat Çetin'in teknoloji, yazılım ve dijital dünyaya dair paylaşımları.">
-    <link rel="stylesheet" href="style.css"> <style>
-    body { background-color: #0f0f1a; color: white; margin: 0; font-family: sans-serif; }
-    
-    .blog-container {
-        max-width: 1200px;
-        margin: 100px auto;
-        padding: 0 20px;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Temel Ayarlar (Index ile aynı) --- */
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #8b5cf6;
+            --accent-hover: #a78bfa;
+            --card-bg: #1e293b;
+        }
 
-    .blog-header { text-align: center; margin-bottom: 50px; }
-    .blog-header h1 { font-size: 2.5rem; color: #fff; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    .blog-categories {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 40px;
-        flex-wrap: wrap;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .cat-btn {
-        padding: 8px 20px;
-        border-radius: 20px;
-        border: 1px solid #a29bfe;
-        background: transparent;
-        color: #fff;
-        cursor: pointer;
-    }
+        /* --- Navigasyon --- */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-    .cat-btn.active { background: #a29bfe; color: #0f0f1a; }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-    .blog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-    }
+        .logo span { color: var(--accent-color); }
 
-    .blog-card {
-        background: #1a1a2e;
-        border-radius: 15px;
-        overflow: hidden;
-        border: 1px solid rgba(162, 155, 254, 0.1);
-    }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-    .blog-image img { width: 100%; height: 200px; object-fit: cover; }
-    .blog-content { padding: 20px; }
-    .category { color: #a29bfe; font-size: 0.8rem; font-weight: bold; }
-    .blog-content h3 a { color: #fff; text-decoration: none; font-size: 1.2rem; }
-    .blog-footer { display: flex; justify-content: space-between; margin-top: 20px; color: #636e72; font-size: 0.8rem; }
-</style> </head>
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+
+        /* --- Döviz Bandı --- */
+        .doviz-bandi {
+            width: 180px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .kayan-icerik {
+            display: flex;
+            white-space: nowrap;
+            animation: kaydir 12s linear infinite;
+        }
+
+        .doviz-item { margin-right: 25px; color: #fff; }
+        .doviz-ad { color: #a29bfe; font-weight: bold; margin-right: 4px; }
+        .doviz-fiyat { color: #00ff88; }
+
+        @keyframes kaydir {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-150%); }
+        }
+
+        /* --- Blog Sayfası İçeriği --- */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .blog-header h1 {
+            font-size: 45px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .blog-header p {
+            color: var(--accent-color);
+            font-size: 18px;
+        }
+
+        /* --- Kategoriler --- */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            padding: 8px 25px;
+            border-radius: 25px;
+            border: 1px solid var(--accent-color);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        /* --- Blog Kartları --- */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .blog-tag {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-content h3 {
+            margin: 15px 0 10px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .blog-content p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* --- Animasyon --- */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .blog-header h1 { font-size: 32px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
 <body>
 
     <nav>
-        <div class="nav-links">
-    <a href="index.html">Ana Sayfa</a> <a href="blog.html" class="active">Blog</a>
-    <a href="index.html#contact">İletişim</a>
-</div>
         <a href="index.html" class="logo">Cetin<span>.Digital</span></a>
-        <div class="nav-links">
-            <a href="index.html">Ana Sayfa</a>
-            <a href="blog.html" class="active">Blog</a>
-            <a href="index.html#contact">İletişim</a>
+        
+        <div class="nav-right">
+            <div class="doviz-bandi">
+                <div class="kayan-icerik" id="doviz-verileri">Veriler çekiliyor...</div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="index.html#works">Çalışmalarım</a>
+                <a href="index.html#contact">İletişim</a>
+            </div>
         </div>
     </nav>
 
     <main class="blog-container">
-        <header class="blog-header">
+        <header class="blog-header fade-in">
             <h1>Dijital Notlarım</h1>
-            <p>Yazılım, tasarım ve yapay zeka üzerine düşüncelerim.</p>
+            <p>Yazılım, Tasarım ve Teknoloji Üzerine Düşünceler</p>
         </header>
 
-        <div class="blog-categories">
+        <div class="categories fade-in">
             <button class="cat-btn active">Hepsi</button>
             <button class="cat-btn">Yazılım</button>
             <button class="cat-btn">Yapay Zeka</button>
@@ -84,22 +264,83 @@
         </div>
 
         <div class="blog-grid">
-            <article class="blog-card">
+            <article class="blog-card fade-in">
                 <div class="blog-image">
-                    <img src="https://via.placeholder.com/400x250" alt="Blog Başlığı">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Web Geliştirme">
                 </div>
                 <div class="blog-content">
-                    <span class="category">Teknoloji</span>
-                    <h3><a href="#">Web Siteme Nasıl Canlı Döviz Bandı Ekledim?</a></h3>
-                    <p>JavaScript ve API kullanarak sitenize dinamik finansal veriler eklemenin yolları...</p>
+                    <span class="blog-tag">Yazılım</span>
+                    <h3>Web Siteme Nasıl Canlı Döviz Bandı Ekledim?</h3>
+                    <p>JavaScript ve API kullanarak sitenize dinamik finansal veriler eklemenin en hızlı ve etkili yolu...</p>
                     <div class="blog-footer">
                         <span>14 Mart 2026</span>
-                        <span>3 dk okuma</span>
+                        <span>4 dk okuma</span>
                     </div>
                 </div>
             </article>
-            </div>
+
+            <article class="blog-card fade-in">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="Yapay Zeka">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Yapay Zeka</span>
+                    <h3>Gemini 1.5 Pro ile Neler Yapılabilir?</h3>
+                    <p>Yapay zeka asistanlarını kodlama süreçlerine dahil ederek verimliliğinizi %200 artırın.</p>
+                    <div class="blog-footer">
+                        <span>12 Mart 2026</span>
+                        <span>6 dk okuma</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card fade-in">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ad79c964c9d7" alt="Otomobil">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Otomobil</span>
+                    <h3>Modern Araçlarda Yazılımın Rolü</h3>
+                    <p>Magirus Deutz'dan Tesla'ya: Otomotiv dünyasında mekanikten dijitale dönüşüm süreci.</p>
+                    <div class="blog-footer">
+                        <span>10 Mart 2026</span>
+                        <span>5 dk okuma</span>
+                    </div>
+                </div>
+            </article>
+        </div>
     </main>
 
+    <script>
+        // --- Elementlerin Görünme Animasyonu ---
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // --- Canlı Döviz Verileri (Index ile Senkron) ---
+        async function dovizGetir() {
+            try {
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                const data = await response.json();
+                const tryKuru = data.rates.TRY;
+                const eurKuru = (data.rates.TRY / data.rates.EUR).toFixed(2);
+                
+                const icerik = `
+                    <div class="doviz-item"><span class="doviz-ad">USD:</span><span class="doviz-fiyat">${tryKuru.toFixed(2)}₺</span></div>
+                    <div class="doviz-item"><span class="doviz-ad">EUR:</span><span class="doviz-fiyat">${eurKuru}₺</span></div>
+                    <div class="doviz-item"><span class="doviz-ad">BTC:</span><span class="doviz-fiyat">94k$</span></div>
+                `;
+                document.getElementById('doviz-verileri').innerHTML = icerik + icerik;
+            } catch (e) { console.log("Veri hatası:", e); }
+        }
+        dovizGetir();
+    </script>
 </body>
 </html>
