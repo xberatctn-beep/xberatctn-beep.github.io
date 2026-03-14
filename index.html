@@ -65,12 +65,17 @@
     <section id="iletisim" class="py-24 px-6">
         <div class="max-w-3xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12">Bana Mesaj Gönderin</h2>
-            <form class="space-y-6">
-                <input type="text" placeholder="Adınız" class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition">
-                <input type="email" placeholder="E-Posta Adresiniz" class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition">
-                <textarea rows="5" placeholder="Mesajınız" class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition"></textarea>
-                <button type="submit" class="w-full py-4 bg-purple-600 rounded-lg font-bold hover:bg-purple-700 transition neon-button uppercase tracking-widest">Gönder</button>
-            </form>
+<form action="https://formspree.io/f/senin-id-kodun" method="POST" class="space-y-6">
+    <div class="grid md:grid-cols-2 gap-6">
+        <input type="text" name="name" placeholder="Adınız" required class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition text-white">
+        
+        <input type="email" name="email" placeholder="E-Posta Adresiniz" required class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition text-white">
+    </div>
+    
+    <textarea name="message" rows="5" placeholder="Mesajınız" required class="w-full p-4 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:border-purple-500 transition text-white"></textarea>
+    
+    <button type="submit" class="w-full py-4 bg-purple-600 rounded-lg font-bold hover:bg-purple-700 transition neon-button uppercase tracking-widest text-white">Gönder</button>
+</form>
         </div>
     </section>
 
