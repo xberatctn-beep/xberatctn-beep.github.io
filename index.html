@@ -26,6 +26,7 @@
         .animate-spin-slow { animation: spin-slow 1s linear infinite; }
     </style>
     <script>
+        // Sayfa yüklenmeden önce tema kontrolü (Beyaz patlamayı önler)
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
@@ -46,7 +47,7 @@
     <header class="fixed top-0 w-full z-50 glass border-b border-purple-900/50">
         <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter dark:text-white text-gray-900">
-                <span class="text-purple-500 underline underline-offset-4 decoration-2">Cetin</span>.Digital
+                <a href="index.html"><span class="text-purple-500 underline underline-offset-4 decoration-2">Cetin</span>.Digital</a>
             </div>
             
             <ul class="hidden md:flex items-center space-x-8 font-medium">
@@ -147,7 +148,7 @@
     </button>
 
     <script>
-        // 1. Preloader
+        // 1. Preloader Kontrolü
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
             document.body.style.overflow = 'hidden';
@@ -158,7 +159,7 @@
             }, 500);
         });
 
-        // 2. Mobil Menü
+        // 2. Mobil Menü Kontrolü
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
@@ -166,34 +167,37 @@
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        // 3. Tema Değiştirme
+        // 3. Tema Değiştirme (Karanlık/Aydınlık Mod)
         const themeToggleBtn = document.getElementById('theme-toggle');
         const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
         function toggleTheme() {
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
                 localStorage.setItem('color-theme', 'light');
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
             } else {
                 document.documentElement.classList.add('dark');
                 localStorage.setItem('color-theme', 'dark');
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
             }
         }
 
         themeToggleBtn.addEventListener('click', toggleTheme);
         mobileThemeToggleBtn.addEventListener('click', toggleTheme);
-        
+
+        // Sayfa ilk açıldığında ikonları ayarla
         if (document.documentElement.classList.contains('dark')) {
             themeToggleLightIcon.classList.remove('hidden');
         } else {
             themeToggleDarkIcon.classList.remove('hidden');
         }
 
-        // 4. Scroll To Top
+        // 4. Scroll To Top Kontrolü
         const scrollBtn = document.getElementById("scrollToTop");
         window.onscroll = function() {
             if (window.scrollY > 300) {
