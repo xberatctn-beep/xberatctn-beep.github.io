@@ -6,182 +6,72 @@
     <title>Berat Çetin | Portfolyo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- TEMEL AYARLAR VE DEĞİŞKENLER --- */
+        /* --- GENEL AYARLAR --- */
         :root {
-            --bg-color: #0f172a;      /* Koyu lacivert arka plan */
-            --text-color: #f8fafc;    /* Beyazımsı metin rengi */
-            --accent-color: #8b5cf6;  /* Ana mor vurgu rengi */
-            --card-bg: #1e293b;       /* Kartların hafif açık lacivert rengi */
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #8b5cf6;
+            --card-bg: #1e293b;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth; /* Sayfa içi geçişlerin yumuşak olmasını sağlar */
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- NAVİGASYON (MENÜ) --- */
+        /* --- NAVİGASYON: Logoyu ve Menüyü Sabitler --- */
         nav {
-            position: fixed; /* Menüyü yukarıya sabitler */
-            width: 100%;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px); /* Menü arkasını bulanıklaştırır */
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: fixed; width: 100%; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
+            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-
+        /* Logo boyutu her iki sayfada da 22px olarak sabitlendi */
+        .logo { font-size: 22px; font-weight: 700; color: #fff; text-decoration: none; }
         .logo span { color: var(--accent-color); }
 
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 14px; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent-color); }
 
-        /* --- DÖVİZ BANDI --- */
-        .doviz-bandi {
-            background: rgba(139, 92, 246, 0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            color: #00ff88;
-            margin-right: 20px;
+        /* --- DÖVİZ BANDI: Kayan Yazı Animasyonu --- */
+        .doviz-kapsayici {
+            width: 150px; overflow: hidden; background: rgba(255,255,255,0.05);
+            border-radius: 20px; padding: 5px 10px; border: 1px solid rgba(139,92,246,0.3);
         }
-
-        /* --- KAHRAMAN (HERO) BÖLÜMÜ --- */
-        section { padding: 100px 10%; }
-
-        .hero-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 80vh;
+        .kayan-metin {
+            display: flex; white-space: nowrap; font-size: 12px; color: #00ff88;
+            animation: kaydir 10s linear infinite;
         }
+        @keyframes kaydir { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .hero-text h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.1; }
+        /* --- HERO (GİRİŞ) BÖLÜMÜ: Düzen Kayması Engellendi --- */
+        section { padding: 120px 10% 60px; }
+        .hero-container { display: flex; align-items: center; justify-content: space-between; min-height: 70vh; gap: 40px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 50px; line-height: 1.2; }
         .hero-text span { color: var(--accent-color); }
-        .hero-text p { margin: 20px 0; color: #94a3b8; max-width: 500px; }
+        .hero-image { flex: 1; display: flex; justify-content: center; }
+        .hero-image img { width: 350px; border-radius: 30px; box-shadow: 0 0 30px rgba(139,92,246,0.2); }
 
-        .hero-image img {
-            width: 350px;
-            height: 350px;
-            border-radius: 30px;
-            object-fit: cover;
-            /* Resmin arkasındaki mor parlama efekti */
-            box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
-        }
+        /* --- YETENEK BARLARI: Dolmama Sorunu Çözüldü --- */
+        .skills-container { background: var(--card-bg); padding: 30px; border-radius: 20px; margin-top: 30px; }
+        .skill-item { margin-bottom: 20px; }
+        .bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden; }
+        .progress { height: 100%; background: var(--accent-color); width: 0; transition: 1.5s ease-in-out; }
 
-        /* --- HAKKIMDA VE YETENEK BARLARI --- */
-        .skills-container {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .skill-item { margin-bottom: 25px; }
-
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        /* Barın boş (gri) kısmı */
-        .bar {
-            width: 100%;
-            height: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        /* Barın dolan (mor) kısmı - BURASI DÜZELTİLDİ */
-        .progress {
-            height: 100%;
-            background: var(--accent-color);
-            border-radius: 5px;
-            width: 0; /* Başlangıçta 0 */
-            transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1); /* Dolma animasyonu */
-        }
-
-        /* --- ÇALIŞMALARIM (PROJELER) --- */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .work-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .work-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
-        }
-
-        .work-img { height: 200px; background: #2d3748; display: flex; align-items: center; justify-content: center; color: #64748b; }
-        .work-img img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .work-content { padding: 20px; }
-        .work-content h4 { color: var(--accent-color); margin-bottom: 5px; }
-
-        /* --- ANİMASYONLAR --- */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s; }
         .visible { opacity: 1; transform: translateY(0); }
-
-        /* --- MOBİL UYUMLULUK --- */
-        @media (max-width: 768px) {
-            .hero-container { flex-direction: column; text-align: center; }
-            .hero-image { order: -1; margin-bottom: 40px; }
-            .hero-image img { width: 250px; height: 250px; }
-            .nav-links { display: none; } /* Mobilde basitlik için menü gizlendi */
-        }
     </style>
 </head>
 <body>
-
     <nav>
-        <a href="#home" class="logo">Cetin<span>.Digital</span></a>
-        <div style="display: flex; align-items: center;">
-            <div class="doviz-bandi" id="ticker">USD: --.-₺</div>
+        <a href="index.html" class="logo">Cetin<span>.Digital</span></a>
+        <div class="nav-right">
+            <div class="doviz-kapsayici"><div class="kayan-metin" id="usd-kuru">Yükleniyor...</div></div>
             <div class="nav-links">
-                <a href="#home">Ana Sayfa</a>
+                <a href="index.html">Ana Sayfa</a>
                 <a href="blog.html">Blog</a>
                 <a href="#about">Hakkımda</a>
-                <a href="#works">Çalışmalarım</a>
                 <a href="#contact">İletişim</a>
             </div>
         </div>
@@ -191,94 +81,5 @@
         <div class="hero-container">
             <div class="hero-text fade-in">
                 <h1>Merhaba, Ben <br><span>Berat Çetin</span></h1>
-                <p>Modern teknolojiler ve yaratıcı tasarımlarla dijital dünyada iz bırakan işler üretmeyi öğreniyorum. Fikirleri gerçeğe dönüştürmeyi seviyorum.</p>
-                <a href="#works" style="display:inline-block; padding:12px 30px; background:var(--accent-color); color:white; text-decoration:none; border-radius:30px; font-weight:600;">Çalışmalarımı Gör</a>
+                <p>Dijital dünyada modern çözümler üreten bir geliştiriciyim.</p>
             </div>
-            <div class="hero-image fade-in">
-                <img src="beratcetinprofil.png" alt="Berat Çetin">
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2 style="text-align: center; margin-bottom: 40px; font-size: 36px;">Hakkımda</h2>
-        <div class="skills-container fade-in">
-            <p style="margin-bottom: 30px; color: #cbd5e1; text-align: center;">Minimalizm ve işlevsellik benim stilim. Şu anda yapay zeka destekli mobil uygulamalar ve interaktif web projeleri üzerinde çalışıyorum.</p>
-            
-            <div class="skill-item">
-                <div class="skill-info"><span>AI & Yapay Zeka</span><span>60%</span></div>
-                <div class="bar"><div class="progress" data-width="60%"></div></div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-info"><span>Web Geliştirme</span><span>75%</span></div>
-                <div class="bar"><div class="progress" data-width="75%"></div></div>
-            </div>
-
-            <div class="skill-item">
-                <div class="skill-info"><span>Mobil Uygulama - Tasarım</span><span>85%</span></div>
-                <div class="bar"><div class="progress" data-width="85%"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="works">
-        <h2 style="text-align: center; margin-bottom: 10px; font-size: 36px;">Çalışmalarım</h2>
-        <div class="works-grid">
-            <div class="work-card fade-in">
-                <div class="work-img"><img src="websiteai.png" alt="Web Geliştirme"></div>
-                <div class="work-content">
-                    <h4>AI ile Web Sitesi Geliştirme</h4>
-                    <p style="font-size: 14px; color: #94a3b8;">Çok Yakında!</p>
-                </div>
-            </div>
-            <div class="work-card fade-in">
-                <div class="work-img"><img src="mobiluygai.png" alt="Mobil Uygulama"></div>
-                <div class="work-content">
-                    <h4>AI ile Mobil Uygulama</h4>
-                    <p style="font-size: 14px; color: #94a3b8;">Çok Yakında!</p>
-                </div>
-            </div>
-            <div class="work-card fade-in">
-                <div class="work-img">Proje Görseli Gelecek</div>
-                <div class="work-content">
-                    <h4>Mobil Oyun Geliştirme</h4>
-                    <p style="font-size: 14px; color: #94a3b8;">Çok Yakında!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // --- GÖRÜNME ANİMASYONU ---
-        // Sayfa kaydırıldıkça öğelerin (ve barların) belirmesini sağlar
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Eğer görünen öğe bir yetenek barı kapsayıcısıysa barları doldur
-                    const barlar = entry.target.querySelectorAll('.progress');
-                    barlar.forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-width');
-                    });
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // --- DÖVİZ VERİSİ ÇEKME ---
-        async function updateTicker() {
-            try {
-                const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-                const data = await res.json();
-                document.getElementById('ticker').innerText = `USD: ${data.rates.TRY.toFixed(2)}₺`;
-            } catch (err) {
-                console.error("Döviz çekilemedi.");
-            }
-        }
-        updateTicker();
-    </script>
-</body>
-</html>
