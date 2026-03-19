@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy & Terms | Berat Çetin</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="Cetin.Digital ve Berat Çetin uygulamaları Gizlilik Politikası.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { darkMode: 'class' }</script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -14,6 +18,7 @@
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
         .dark .glass { background: rgba(0, 0, 0, 0.2); border-color: rgba(160, 32, 240, 0.2); }
         .policy-item { border-left: 2px solid #a020f0; padding-left: 1rem; margin-bottom: 1.5rem; }
+        .external-link { color: #a020f0; text-decoration: underline; font-size: 0.8rem; }
     </style>
 </head>
 <body class="bg-white text-gray-900 dark:bg-[#0b0014] dark:text-gray-200 leading-relaxed overflow-x-hidden">
@@ -27,20 +32,17 @@
                 <li><a href="index.html" class="hover:text-purple-400 transition">Ana Sayfa</a></li>
                 <li><a href="projeler.html" class="hover:text-purple-400 transition">Projelerim</a></li>
                 <li><a href="privacy.html" class="text-purple-500 font-bold">Privacy & Terms</a></li>
-                
                 <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-purple-500 transition-all flex items-center justify-center min-w-[40px] min-h-[40px]">
                     <span class="dark:hidden text-xl">🌙</span>
                     <span class="hidden dark:inline text-xl">☀️</span>
                 </button>
             </ul>
-
             <button id="menu-btn" class="md:hidden text-gray-900 dark:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
-
         <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white dark:bg-[#0b0014] border-b border-purple-900/50 px-6 py-8 space-y-6 shadow-2xl text-center">
             <a href="index.html" class="block text-lg hover:text-purple-500">Ana Sayfa</a>
             <a href="projeler.html" class="block text-lg hover:text-purple-500">Projelerim</a>
@@ -49,98 +51,10 @@
     </header>
 
     <main class="pt-40 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
-        <h1 class="text-4xl md:text-6xl font-black mb-12 dark:text-white text-gray-900 neon-text">Privacy & Terms</h1>
+        <div class="mb-10 text-center md:text-left">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 dark:text-white text-gray-900 neon-text">Privacy & Terms</h1>
+            <p class="text-xs text-gray-500 font-mono">Son Güncelleme: 19 Mart 2026</p>
+        </div>
         
         <div class="space-y-12">
-            <section class="glass p-8 rounded-2xl border border-purple-900/20 shadow-xl">
-                <h2 class="text-2xl font-bold text-purple-500 mb-6 uppercase tracking-widest flex items-center gap-3">
-                    <span>🔐</span> Privacy Policy
-                </h2>
-                <div class="space-y-6 text-sm md:text-base leading-relaxed">
-                    <p class="italic text-gray-500 dark:text-gray-400">Berat Çetin tarafından geliştirilen uygulamalar kullanıcı gizliliğine önem verir.</p>
-
-                    <div class="policy-item">
-                        <h3 class="font-bold text-lg mb-2">1. Toplanan Veriler (Collected Data)</h3>
-                        <p class="mb-2">Uygulamalarımız Google AdMob ve Google Play Billing hizmetlerini kullanabilir. Bu servisler cihaz bilgilerini, reklam kimliğini (Advertising ID) ve kullanım verilerini toplayabilir. Bu veriler tarafımızca değil, üçüncü taraf sağlayıcılarca işlenir.</p>
-                        <p class="text-xs opacity-60 uppercase tracking-tighter">Applications use Google AdMob and Play Billing. These services may collect device info and Ad IDs via third-party providers.</p>
-                    </div>
-
-                    <div class="policy-item">
-                        <h3 class="font-bold text-lg mb-2">2. Reklamlar & Satın Alma (Ads & IAP)</h3>
-                        <p>Kullanıcılar reklam kişiselleştirmeyi cihaz ayarlarından kapatabilir. Tüm satın alma işlemleri Google Play'in güvenli altyapısı üzerinden yapılır; ödeme bilgileriniz geliştirici tarafından görülmez.</p>
-                    </div>
-
-                    <div class="policy-item">
-                        <h3 class="font-bold text-lg mb-2">3. Veri Paylaşımı & Çocukların Gizliliği</h3>
-                        <p>Verileriniz satılmaz veya kiralanmaz. Uygulamalarımız 13 yaş altı çocukları hedeflememektedir ve bilerek çocuklardan veri toplanmaz.</p>
-                    </div>
-
-                    <div class="pt-6 border-t border-purple-900/20">
-                        <p class="text-purple-500 font-mono">İletişim: berattcetin.dev@gmail.com</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="glass p-8 rounded-2xl border border-purple-900/20 shadow-xl">
-                <h2 class="text-2xl font-bold text-purple-500 mb-6 uppercase tracking-widest flex items-center gap-3">
-                    <span>📜</span> Terms of Service
-                </h2>
-                <div class="space-y-6 text-sm md:text-base leading-relaxed">
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="p-4 bg-purple-500/5 rounded-xl border border-purple-500/10">
-                            <h3 class="font-bold mb-2">Genel Şartlar</h3>
-                            <ul class="space-y-2 text-sm">
-                                <li class="flex items-start gap-2">✔ Uygulamayı kullananlar bu şartları kabul eder.</li>
-                                <li class="flex items-start gap-2">✔ Sadece kişisel kullanım içindir.</li>
-                            </ul>
-                        </div>
-                        <div class="p-4 bg-red-500/5 rounded-xl border border-red-500/10">
-                            <h3 class="font-bold mb-2 text-red-400">Yasaklar (Prohibited)</h3>
-                            <ul class="space-y-2 text-sm">
-                                <li class="flex items-start gap-2">❌ Kopyalamak veya dağıtmak.</li>
-                                <li class="flex items-start gap-2">❌ Tersine mühendislik yapmak.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="policy-item">
-                        <h3 class="font-bold text-lg mb-2">Sorumluluk Reddi (Disclaimer)</h3>
-                        <p>Uygulama "olduğu gibi" sunulur. Herhangi bir veri kaybı veya zarardan geliştirici sorumlu tutulamaz. Satın alınan içerikler Google hesabınıza bağlıdır.</p>
-                    </div>
-
-                    <p class="text-xs text-gray-500 italic">Bu politikalar ve şartlar zaman zaman güncellenebilir ve güncellemeler bu sayfa üzerinden yayınlanır.</p>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="py-10 text-center border-t border-gray-200 dark:border-white/5 text-gray-500 text-sm tracking-widest uppercase">
-        &copy; 2026 Berat Çetin. Tüm Hakları Saklıdır.
-    </footer>
-
-    <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-
-        function applyTheme() {
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        }
-
-        applyTheme();
-
-        themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-        });
-
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    </script>
-</body>
-</html>
+            <section class="glass p-8 rounded-2xl border border-purple-9
